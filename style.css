@@ -68,6 +68,7 @@ body {
   width: 250px;
   height: 50px;
   border-radius: 15px;
+  overflow: hidden;
 }
 .ScoreImage {
   position: absolute;
@@ -75,9 +76,10 @@ body {
   height: auto;
   left: 1%;
   top: 0;
+  overflow: hidden;
 }
 .footer {
-  margin-top: 30%;
+  margin-top: 5%;
   margin-bottom: 0%;
   width: 100%;
   display: flex;
@@ -98,4 +100,51 @@ body {
   height: auto;
   left: 80%;
   bottom: 1px;
+}
+
+.hidden {
+  width: 375px;
+  height: 814px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background-color: brown;
+  display: none;
+}
+.hidden div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hidden img {
+  width: 150px;
+  cursor: pointer;
+}
+textarea {
+  width: 300px;
+  height: 120px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+  overflow: auto;
+  text-align: left;
+  resize: none;
+  display: none;
+}
+.guidinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.resetBTNDiv {
+  position: relative;
+  height: 100%;
 }

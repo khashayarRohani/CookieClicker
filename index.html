@@ -42,19 +42,46 @@
           <button id="LevelFivebtn">L5</button>
           <img class="ScoreImage" src="./Images/LevelBG/5.png" />
         </div>
-        <div>
-          <p>active level Info</p>
+        <div class="guidinfo">
+          <p>activation level Info</p>
+          <textarea readonly>
+            Level 1 farmer is activated after reaching 10 cookie,
+            Level 2 farmer is activated after reaching 50 cookie,
+            Level 3 farmer is activated after reaching 100 cookie,
+            Level 4 farmer is activated after reaching 200 cookie,
+            Level 5 farmer is activated after reaching 500 cookie,
+            Press Store to buy new cookie
+            press to hide
+          </textarea>
         </div>
       </section>
       <section class="footer">
-        <div style="position: relative; height: 100%">
+        <div class="resetBTNDiv">
           <button id="resetBtn">Reset Game</button>
           <img class="footerImg1" src="./Images/footerBG/reset.png" />
         </div>
-        <div style="position: relative">
-          <button>Guide</button>
+        <div>
+          <button id="guidBtn">Guide</button>
         </div>
       </section>
     </section>
+    <section class="hidden">
+      <h1>Choose Your Picture</h1>
+
+      <div>
+        <img id="selectedImg1" src="./Images/bit.webp" alt="Picture 1" />
+        <p>Cost: 10 cookies</p>
+      </div>
+
+      <div>
+        <img id="selectedImg2" src="./Images/R.png" alt="Picture 2" />
+        <p>Cost: 20 cookies</p>
+      </div>
+      <div>
+        <img id="selectedImg3" src="./Images/fullCookie.webp" alt="Picture 3" />
+        <p>Cost: Free</p>
+      </div>
+    </section>
+    <section class="Guide"></section>
   </body>
 </html>

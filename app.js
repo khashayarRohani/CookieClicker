@@ -11,6 +11,8 @@ const LThreeBtn = document.getElementById("LevelThreebtn");
 const LFourBtn = document.getElementById("LevelFourbtn");
 const LFiveBtn = document.getElementById("LevelFivebtn");
 const TapBtn = document.getElementById("cookieBtn");
+const storeBtn = document.getElementById("storeBtn");
+const resetBtn = document.getElementById("resetBtn");
 //functions
 //update display
 function updateCookieDisplay() {
@@ -140,7 +142,6 @@ function LThreeFarmer() {
     clearInterval(localStorage.getItem("L5IntervalContainer"));
     clearInterval(localStorage.getItem("L2IntervalContainer"));
     clearInterval(localStorage.getItem("L1IntervalContainer"));
-    localStorage.removeItem("L2IntervalContainer");
   } else {
     isL3Active = false;
   }
@@ -166,7 +167,6 @@ function LFourFarmer() {
     clearInterval(localStorage.getItem("L3IntervalContainer"));
     clearInterval(localStorage.getItem("L2IntervalContainer"));
     clearInterval(localStorage.getItem("L1IntervalContainer"));
-    localStorage.removeItem("L3IntervalContainer");
   } else {
     isL4Active = false;
   }
@@ -194,7 +194,6 @@ function LFiveFarmer() {
     clearInterval(localStorage.getItem("L3IntervalContainer"));
     clearInterval(localStorage.getItem("L2IntervalContainer"));
     clearInterval(localStorage.getItem("L1IntervalContainer"));
-    localStorage.removeItem("L4IntervalContainer");
   } else {
     isL5Active = false;
   }
@@ -272,3 +271,57 @@ TapBtn.addEventListener("click", () => {
 
 //call for username
 UserInfo();
+// store
+const storesection = document.querySelector(".hidden"); // Note the dot for class selector
+function openStore() {
+  storesection.style.display = "block";
+}
+
+// Event listener for store button click
+storeBtn.addEventListener("click", openStore);
+
+//store js
+// Get all picture options
+const SelectedImg = document.getElementById("selectedImg1");
+const Selectedimg = document.getElementById("selectedImg2");
+const selectedimg = document.getElementById("selectedImg3");
+SelectedImg.addEventListener("click", function () {
+  TapBtn.style.backgroundImage = `url('${SelectedImg.src}')`;
+  storesection.style.display = "none";
+  AutoFarmer -= 10;
+  updateCookieDisplay();
+});
+Selectedimg.addEventListener("click", function () {
+  TapBtn.style.backgroundImage = `url('${Selectedimg.src}')`;
+  storesection.style.display = "none";
+  AutoFarmer -= 20;
+  updateCookieDisplay();
+});
+selectedimg.addEventListener("click", function () {
+  TapBtn.style.backgroundImage = `url('${selectedimg.src}')`;
+  storesection.style.display = "none";
+});
+const txtarea = document.querySelector("textarea");
+txtarea.addEventListener("click", () => {
+  txtarea.style.display = "none";
+});
+const gBtn = document.getElementById("guidBtn"); //guide btn
+gBtn.addEventListener("click", () => {
+  txtarea.style.display = "block";
+});
+resetBtn.addEventListener("click", () => {
+  LOneBtn.classList.remove("Selected");
+  LTwoBtn.classList.remove("Selected");
+  LThreeBtn.classList.remove("Selected");
+  LFourBtn.classList.remove("Selected");
+  LFiveBtn.classList.remove("Selected");
+  clearInterval(localStorage.getItem("L1IntervalContainer"));
+  clearInterval(localStorage.getItem("L2IntervalContainer"));
+  clearInterval(localStorage.getItem("L3IntervalContainer"));
+  clearInterval(localStorage.getItem("L4IntervalContainer"));
+  clearInterval(localStorage.getItem("L5IntervalContainer"));
+  localStorage.clear();
+  AutoFarmer = 0;
+  UserInfo();
+  updateCookieDisplay();
+});
