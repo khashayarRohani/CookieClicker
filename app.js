@@ -199,34 +199,76 @@ function LFiveFarmer() {
     isL5Active = false;
   }
 }
+
+//adding event listeners
+// Function to check and activate Level One
 function checkLevelOneActivation() {
-  if (AutoFarmer >= 10) {
+  if (AutoFarmer >= 10 && !isL1Active) {
     LOneBtn.disabled = false;
     LOneBtn.addEventListener("click", LOneFarmer);
   } else {
     LOneBtn.disabled = true;
   }
 }
-checkLevelOneActivation();
 
-//adding event listeners
-//L1
-//LOneBtn.addEventListener("click", LOneFarmer);
-//L2
-LTwoBtn.addEventListener("click", LTwoFarmer);
-//L3
-LThreeBtn.addEventListener("click", LThreeFarmer);
-//L4
-LFourBtn.addEventListener("click", LFourFarmer);
-//L5
-LFiveBtn.addEventListener("click", LFiveFarmer);
-//Tap
+// Function to check and activate Level Two
+function checkLevelTwoActivation() {
+  if (AutoFarmer >= 50 && !isL2Active) {
+    LTwoBtn.disabled = false;
+    LTwoBtn.addEventListener("click", LTwoFarmer);
+  } else {
+    LTwoBtn.disabled = true;
+  }
+}
+
+// Function to check and activate Level Three
+function checkLevelThreeActivation() {
+  if (AutoFarmer >= 100 && !isL3Active) {
+    LThreeBtn.disabled = false;
+    LThreeBtn.addEventListener("click", LThreeFarmer);
+  } else {
+    LThreeBtn.disabled = true;
+  }
+}
+
+// Function to check and activate Level Four
+function checkLevelFourActivation() {
+  if (AutoFarmer >= 200 && !isL4Active) {
+    LFourBtn.disabled = false;
+    LFourBtn.addEventListener("click", LFourFarmer);
+  } else {
+    LFourBtn.disabled = true;
+  }
+}
+
+// Function to check and activate Level Five
+function checkLevelFiveActivation() {
+  if (AutoFarmer >= 500 && !isL5Active) {
+    LFiveBtn.disabled = false;
+    LFiveBtn.addEventListener("click", LFiveFarmer);
+  } else {
+    LFiveBtn.disabled = true;
+  }
+}
+
+// Call these functions during initialization and after every increment
+checkLevelOneActivation();
+checkLevelTwoActivation();
+checkLevelThreeActivation();
+checkLevelFourActivation();
+checkLevelFiveActivation();
+
 // Tap button event listener
 TapBtn.addEventListener("click", () => {
-  AutoFarmer++; // Increment AutoFarmer by 1
-  localStorage.setItem("AutoFarmer", AutoFarmer); // Update AutoFarmer in localStorage
+  AutoFarmer++;
+  localStorage.setItem("AutoFarmer", AutoFarmer);
   updateCookieDisplay();
   checkLevelOneActivation();
+  checkLevelTwoActivation();
+  checkLevelThreeActivation();
+  checkLevelFourActivation();
+  checkLevelFiveActivation();
 });
+
 //call for username
 UserInfo();
