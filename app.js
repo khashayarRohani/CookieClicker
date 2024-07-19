@@ -296,14 +296,46 @@ const selectedimg = document.getElementById("selectedImg3");
 SelectedImg.addEventListener("click", function () {
   TapBtn.style.backgroundImage = `url('${SelectedImg.src}')`;
   storesection.style.display = "none";
-  AutoFarmer -= 10;
+  const Pcost = document.getElementById("Cost1");
+  if (AutoFarmer > 10) {
+    AutoFarmer -= 10;
+  } else {
+    const curp = Pcost.textContent;
+    storesection.style.display = "block";
+    setTimeout(() => {
+      Pcost.textContent = curp;
+    }, 2000);
+    Pcost.textContent = "not enough";
+  }
+
   updateCookieDisplay();
+  checkLevelOneActivation();
+  checkLevelTwoActivation();
+  checkLevelThreeActivation();
+  checkLevelFourActivation();
+  checkLevelFiveActivation();
 });
 Selectedimg.addEventListener("click", function () {
   TapBtn.style.backgroundImage = `url('${Selectedimg.src}')`;
   storesection.style.display = "none";
-  AutoFarmer -= 20;
+
+  const pcost = document.getElementById("Cost2");
+  const curp = pcost.textContent;
+  if (AutoFarmer > 20) {
+    AutoFarmer -= 20;
+  } else {
+    storesection.style.display = "block";
+    setTimeout(() => {
+      pcost.textContent = curp;
+    }, 2000);
+    pcost.textContent = "not enough";
+  }
   updateCookieDisplay();
+  checkLevelOneActivation();
+  checkLevelTwoActivation();
+  checkLevelThreeActivation();
+  checkLevelFourActivation();
+  checkLevelFiveActivation();
 });
 selectedimg.addEventListener("click", function () {
   TapBtn.style.backgroundImage = `url('${selectedimg.src}')`;
