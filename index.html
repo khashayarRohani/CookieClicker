@@ -42,9 +42,10 @@
           <button id="LevelFivebtn">L5</button>
           <img class="ScoreImage" src="./Images/LevelBG/5.png" />
         </div>
-        <div class="guidinfo">
-          <p>activation level Info</p>
-          <textarea readonly>
+      </section>
+      <div class="guidinfo">
+        <p>activation level Info</p>
+        <textarea readonly>
             Level 1 farmer is activated after reaching 10 cookie,
             Level 2 farmer is activated after reaching 50 cookie,
             Level 3 farmer is activated after reaching 100 cookie,
@@ -52,16 +53,20 @@
             Level 5 farmer is activated after reaching 500 cookie,
             Press Store to buy new cookie
             press to hide
-          </textarea>
-        </div>
-      </section>
+          </textarea
+        >
+      </div>
+
       <section class="footer">
         <div class="resetBTNDiv">
           <button id="resetBtn">Reset Game</button>
           <img class="footerImg1" src="./Images/footerBG/reset.png" />
         </div>
         <div>
-          <button id="guidBtn">Guide</button>
+          <button class="footerHideBTN" id="guidBtn">Guide</button>
+        </div>
+        <div>
+          <button id="btnMusic">Music</button>
         </div>
       </section>
     </section>
@@ -82,6 +87,12 @@
         <p>Cost: Free</p>
       </div>
     </section>
-    <section class="Guide"></section>
+    <audio
+      id="Audio"
+      src="./Audio/music.mp3"
+      style="display: none"
+      controls
+      loop
+    ></audio>
   </body>
 </html>

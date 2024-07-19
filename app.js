@@ -258,6 +258,7 @@ checkLevelFourActivation();
 checkLevelFiveActivation();
 
 // Tap button event listener
+
 TapBtn.addEventListener("click", () => {
   AutoFarmer++;
   localStorage.setItem("AutoFarmer", AutoFarmer);
@@ -267,6 +268,13 @@ TapBtn.addEventListener("click", () => {
   checkLevelThreeActivation();
   checkLevelFourActivation();
   checkLevelFiveActivation();
+  const clickSound = new Audio("./Audio/eff.mp3");
+  clickSound.play();
+  TapBtn.style.transform = "scale(1.2)";
+
+  setTimeout(() => {
+    TapBtn.style.transform = "scale(1)";
+  }, 90); // Adjust the delay as needed
 });
 
 //call for username
@@ -310,6 +318,7 @@ gBtn.addEventListener("click", () => {
   txtarea.style.display = "block";
 });
 resetBtn.addEventListener("click", () => {
+  cookieFarmerDisplay.textContent = "";
   LOneBtn.classList.remove("Selected");
   LTwoBtn.classList.remove("Selected");
   LThreeBtn.classList.remove("Selected");
@@ -322,6 +331,28 @@ resetBtn.addEventListener("click", () => {
   clearInterval(localStorage.getItem("L5IntervalContainer"));
   localStorage.clear();
   AutoFarmer = 0;
-  UserInfo();
+  location.reload();
   updateCookieDisplay();
+  checkLevelOneActivation();
+  checkLevelTwoActivation();
+  checkLevelThreeActivation();
+  checkLevelFourActivation();
+  checkLevelFiveActivation();
+  UserInfo();
+});
+
+const audio = document.getElementById("Audio");
+const playBtn = document.getElementById("btnMusic");
+let isPlay = false;
+playBtn.addEventListener("click", function () {
+  if (isPlay == false) {
+    audio.play();
+    isPlay = true;
+    playBtn.textContent = "Music/Mute";
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    isPlay = false;
+    playBtn.textContent = "Music/Play";
+  }
 });
